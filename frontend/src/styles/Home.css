@@ -1,0 +1,265 @@
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0a4a6b 0%, #0d5f7f 100%);
+  color: white;
+  padding: 60px 40px;
+  min-height: 500px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-subtitle {
+  font-style: italic;
+  color: #ffa447;
+  font-size: 16px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.hero-title-accent {
+  display: block;
+  color: #17a9ad;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 64px;
+}
+
+.hero-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 400px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6633;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #ff5522;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero-image {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Wave Divider */
+.wave-divider {
+  position: relative;
+  height: 120px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 100%;
+  color: #0a4a6b;
+  display: block;
+}
+
+/* Tuesday Special Section */
+.special-section {
+  background-color: #f5f5f5;
+  padding: 80px 40px;
+}
+
+.special-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.special-image {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.special-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.special-text {
+  flex: 1;
+}
+
+.special-subtitle {
+  font-style: italic;
+  color: #ffa447;
+  font-size: 16px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.special-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0a4a6b;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.special-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.special-highlight {
+  background-color: #e8f4f8;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 4px solid #17a9ad;
+}
+
+.special-highlight p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #0a4a6b;
+}
+
+.special-highlight p:first-child {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-title-accent {
+    font-size: 42px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .special-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+  }
+
+  .special-image {
+    max-width: 100%;
+  }
+
+  .wave-divider {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-title-accent {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+
+  .special-section {
+    padding: 50px 20px;
+  }
+
+  .special-title {
+    font-size: 32px;
+  }
+
+  .special-description {
+    font-size: 14px;
+  }
+}
