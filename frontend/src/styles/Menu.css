@@ -6,22 +6,27 @@
   margin: 2.5rem auto;
   padding: 0 1.25rem;
   color: #052a28;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 .menu-anchors-wrap {
+  flex: 0 0 20%;
   overflow-x: auto;
   padding-bottom: 0.75rem;
-  /* FIGURE OUT LATER
   position: sticky;
-  top: 0;
-  */
+  top: 1rem;
+  height: fit-content;
 }
 
 .menu-anchors {
-  display: flex;
+  display:flex;
+  flex-direction: column;
   gap: 0.75rem;
   align-items: center;
-  white-space: nowrap;
+  white-space: normal;
+  
 }
 
 .menu-anchor {
@@ -39,7 +44,7 @@
 .menu-anchor:focus,
 .menu-anchor:hover { transform: translateY(-2px); }
 
-.menu-sections { margin-top: 1rem; }
+.menu-sections { margin-top: 1rem; flex: 1;}
 
 .menu-section { margin: 2rem 0; }
 
@@ -79,8 +84,10 @@
 .menu-anchors-wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 999px; }
 
 @media (max-width: 768px) {
-  .menu-page { margin: 1.5rem auto; }
+  .menu-page { margin: 1.5rem auto; flex-direction: column;}
   .menu-section-title { font-size: 1.25rem; }
   .menu-card-media img { height: 120px; }
-  .menu-anchor { font-size: 0.85rem; padding: 0.45rem 0.75rem; }
+  .menu-anchor { font-size: 1.5rem; padding: 0.45rem 0.75rem; }
+  .menu-anchors {flex-direction: row; white-space: noWrap;} 
+  .menu-anchors-wrap {position: sticky; top: 0;}
 }
