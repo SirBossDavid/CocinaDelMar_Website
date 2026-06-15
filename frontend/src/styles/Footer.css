@@ -1,6 +1,6 @@
 .footer {
   position: relative;
-  background: linear-gradient(180deg, #0d3d3a 0%, #082d2b 100%);
+  background: linear-gradient(180deg, #0f4d5e 0%, #0B3C49 100%);
   color: #effafb;
   padding: 3rem 2rem 2.5rem;
   overflow: hidden;
@@ -9,7 +9,7 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: minmax(220px, 1.1fr) repeat(2, minmax(180px, 1fr));
+  grid-template-columns: minmax(220px, 1.1fr) repeat(3, minmax(180px, 1fr));
   gap: 2rem;
   align-items: flex-start;
   max-width: 1180px;
@@ -72,6 +72,8 @@
   opacity: 0.16;
   pointer-events: none;
 }
+
+
 
 @media (max-width: 768px) {
   .footer {

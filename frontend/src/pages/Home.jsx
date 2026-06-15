@@ -1,6 +1,6 @@
-import hero from '../assets/hero.png'
 import '../styles/Home.css'
-
+import ceviche from '../assets/ceviche.jpg';
+import fishtaco from '../assets/fishtaco.jpg';
 export default function Home() {
   return (
     <main className="home-page">
@@ -18,25 +18,14 @@ export default function Home() {
               <button className="btn btn-secondary">RESERVE A TABLE</button>
             </div>
           </div>
-          <div className="hero-image">
-            <img src={hero} alt="Mexican Seafood Dish" />
-          </div>
         </div>
       </section>
 
-      {/* Wave Divider */}
-      <div className="wave-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,64L100,58.7C200,53,400,42,600,48C800,53,1000,75,1100,80L1200,85L1200,0L1100,0C1000,0,800,0,600,0C400,0,200,0,100,0L0,0Z" fill="currentColor"></path>
-        </svg>
-      </div>
+      
 
       {/* Tuesday Special Section */}
       <section className="special-section">
         <div className="special-content">
-          <div className="special-image">
-            <img src={hero} alt="Tuesday Specials" />
-          </div>
           <div className="special-text">
             <p className="special-subtitle">~ Our Special ~</p>
             <h2 className="special-title">TUESDAY TACOS & CEVICHE</h2>
@@ -48,6 +37,10 @@ export default function Home() {
               <p>25% Discount on Tacos & Ceviche</p>
             </div>
             <button className="btn btn-primary">LEARN MORE</button>
+          </div>
+          <div className="special-image">
+            <img src={ceviche} alt="Tuesday Specials" />
+            <img src={fishtaco} alt="Tuesday Specials" />
           </div>
         </div>
       </section>

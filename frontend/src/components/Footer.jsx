@@ -18,16 +18,30 @@ export default function Footer() {
 
         <div className="footer-block">
           <p className="footer-heading">Hours</p>
-          <p>Monday – Thursday<br />11:00 AM – 9:00 PM</p>
-          <p>Friday – Saturday<br />11:00 AM – 10:00 PM</p>
-          <p>Sunday<br />11:00 AM – 8:00 PM</p>
+          <p>Sunday – Thursday<br />10:00 AM – 9:00 PM</p>
+          <p>Friday – Saturday<br />10:00 AM – 10:00 PM</p>
+          
         </div>
 
         <div className="footer-block">
           <p className="footer-heading">Location</p>
-          <p>123 Ocean Drive<br />San Diego, CA 92101</p>
-          <p className="footer-contact">(619) 555-1234</p>
+          <p>650 Douglas Dr unit 122<br />Oceanside, CA 92058</p>
+          <p className="footer-contact">(760) 925-3060</p>
         </div>
+        
+        <section className="map-section">
+        <h2>Find Us</h2>
+        <iframe
+          title="Restaurant location"
+          src="https://maps.google.com/maps?q=cocina%20del%20mar&t=m&z=15&ie=UTF8&iwloc=B&output=embed"
+          width="auto"
+          height="300"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </section>
       </div>
       
     </footer>
