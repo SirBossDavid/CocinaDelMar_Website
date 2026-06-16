@@ -1,5 +1,5 @@
 import '../styles/Home.css'
-import ceviche from '../assets/ceviche.jpg';
+import ceviche from '../assets/fish_ceviche.jpeg';
 import fishtaco from '../assets/fishtaco.jpg';
 export default function Home() {
   return (
@@ -43,6 +43,10 @@ export default function Home() {
             <img src={fishtaco} alt="Tuesday Specials" />
           </div>
         </div>
+      </section>
+
+      <section className = "template">
+         {/* Have Title_name  Description and photo */}
       </section>
     </main>
   )
