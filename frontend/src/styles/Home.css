@@ -6,7 +6,7 @@
   padding: 120px 40px;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(10, 74, 107, 0.65) 0%, rgba(13, 95, 127, 0.35) 45%, rgba(13, 95, 127, 0.15) 100%),
-    url('../assets/caldo.jpg') center/cover no-repeat;
+    url('../assets/caldo.jpeg') center/cover no-repeat;
 }
 
 .hero-section::before {

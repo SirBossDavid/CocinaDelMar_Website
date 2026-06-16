@@ -25,9 +25,7 @@ export default function Header() {
         <ul className={`header-nav ${menuOpen ? 'open' : ''}`}>
           <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
           <li><Link to ="/menu" onClick={() => setMenuOpen(false)}>Menu</Link></li>
-          <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
           <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li>
-          <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
           <li className="mobile-order">
             <Link to="/order" onClick={() => setMenuOpen(false)}>Order Online</Link>
           </li>
