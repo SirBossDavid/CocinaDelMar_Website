@@ -23,6 +23,19 @@ try:
 except Exception as e:
     raise Exception("Unable to find the document due to the following error: ", e)
 
+@app.route('/api/customs', methods=['GET'])
+def get_customs():
+    try:
+        database = client.get_database("Menu")
+        section_collection = database.get_collection("CustomSections")
+    except Exception as e:
+        raise Exception("Unable to find the document due to the following error: ", e)
+        
+    sections =  list(section_collection.find())
+    for section in sections:
+        section['_id'] = str(section['_id'])
+    return jsonify(sections)
+
 @app.route('/api/menu', methods=['GET'])
 def get_menu():
     items = list(menu_collection.find())
