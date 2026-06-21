@@ -6,7 +6,7 @@ export default function Menu() {
   const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
-    axios.get('http://192.168.68.51:5010/api/menu')
+    axios.get('http://192.168.68.58:5010/api/menu')
       .then(res => setMenuItems(res.data))
       .catch(console.error)
   }, [])

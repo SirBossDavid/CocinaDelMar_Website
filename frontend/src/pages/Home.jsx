@@ -1,13 +1,14 @@
 import '../styles/Home.css'
 import ceviche from '../assets/fish_ceviche.jpeg';
 import fishtaco from '../assets/fishtaco.jpg';
+import locationPlaceholder from '../assets/loc.jpg';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 export default function Home() {
   
   const [customs, setCustoms] = useState([])
   useEffect(()=>{
-    axios.get("http://192.168.68.57:5010/api/customs")
+    axios.get("http://192.168.68.58:5010/api/customs")
              .then(res => setCustoms(res.data))
   },[])
   return (
@@ -72,6 +73,7 @@ export default function Home() {
 
       {customs.map((custom, idx) => {
         const isEven = idx % 2 === 1;
+        /*checks img array - might remove */
         const imgSrc = (custom.images && custom.images.length) ? custom.images[0] : custom.img_url || null;
 
         return (
@@ -114,6 +116,24 @@ export default function Home() {
           </section>
         );
       })}
+
+      <section className="special-section">
+        <div className="about-content">
+          <div className="special-text">
+            <p className="special-title">~ About Us ~</p>
+            <h2 >Family-Owned Mexican Seafood</h2>
+            <p>
+              Founded in 2023, Cocina Del Mar is a family-owned and operated restaurant dedicated to sharing our lifelong passion for vibrant, traditional Mexican cuisine. While our family’s roots trace back to the rich culinary heritage of Oaxaca, our kitchen focuses on bringing a broad, delicious variety of classic Mexican seafood and favorite dishes straight to Oceanside.
+            </p>
+            <p>
+              Every plate is scratch-made with love, fresh ingredients, and the authentic flavors of home.
+            </p>
+          </div>
+          <div >
+            <img src={locationPlaceholder} alt="Cocina Del Mar location placeholder" />
+          </div>
+        </div>
+      </section>
 
     <div className='review-section'>
       <h2 className="special-title">Reviews</h2>
