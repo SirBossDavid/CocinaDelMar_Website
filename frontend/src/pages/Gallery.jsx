@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 import '../styles/Gallery.css';
 
 export default function Gallery() {
@@ -7,36 +8,15 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch photos from Cloudinary
-    // Replace with your Cloudinary API endpoint
-    const fetchPhotos = async () => {
-      try {
-        // TODO: Replace with your Cloudinary fetch logic
-        // Example:
-        // const response = await fetch('YOUR_CLOUDINARY_URL');
-        // const data = await response.json();
-        // setPhotos(data.resources);
-        
-        // For now, using placeholder data
-        const placeholderPhotos = [
-          { id: 1, url: 'https://via.placeholder.com/400x300?text=Dish+1', alt: 'Dish 1' },
-          { id: 2, url: 'https://via.placeholder.com/400x300?text=Dish+2', alt: 'Dish 2' },
-          { id: 3, url: 'https://via.placeholder.com/400x300?text=Dish+3', alt: 'Dish 3' },
-          { id: 4, url: 'https://via.placeholder.com/400x300?text=Dish+4', alt: 'Dish 4' },
-          { id: 5, url: 'https://via.placeholder.com/400x300?text=Dish+5', alt: 'Dish 5' },
-          { id: 6, url: 'https://via.placeholder.com/400x300?text=Dish+6', alt: 'Dish 6' },
-          { id: 7, url: 'https://via.placeholder.com/400x300?text=Dish+7', alt: 'Dish 7' },
-          { id: 8, url: 'https://via.placeholder.com/400x300?text=Dish+8', alt: 'Dish 8' },
-        ];
-        setPhotos(placeholderPhotos);
-      } catch (error) {
-        console.error('Error fetching photos:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPhotos();
+     axios.get("http://192.168.68.60:5010/api/gallery")
+        .then(res => {
+          setPhotos(res.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error(err);
+          setLoading(false);
+        })
   }, []);
 
   const openModal = (photo) => {
@@ -84,7 +64,7 @@ export default function Gallery() {
             className="gallery-item"
             onClick={() => openModal(photo)}
           >
-            <img src={photo.url} alt={photo.alt} />
+            <img src={photo.img_url} alt={photo.alt} />
             <div className="gallery-overlay">
               <span className="gallery-icon">🔍</span>
             </div>
@@ -98,7 +78,7 @@ export default function Gallery() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
-            <img src={selectedPhoto.url} alt={selectedPhoto.alt} />
+            <img src={selectedPhoto.img_url} alt={selectedPhoto.alt} />
             
             <div className="modal-controls">
               <button

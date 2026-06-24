@@ -48,10 +48,13 @@ export default function Menu() {
             <h2 className="menu-section-title">{section.title}</h2>
             <div className="menu-grid">
               {section.items.map(item => (
-                <article className="menu-card" key={item._id}>
-                  <div className="menu-card-media">
-                    <img src={hero} alt={item.name} />
-                  </div>
+                <article className={`menu-card${item.imageUrl ? '' : ' menu-card--text-only'}`}
+                key={item._id}>
+                  {item.imageUrl && (
+                    <div className="menu-card-media">
+                      <img src={item.imageUrl} alt={item.name} />
+                    </div>
+                  )}
                   <div className="menu-card-body">
                     <h3 className="menu-card-title">{item.name}</h3>
                     <p className="menu-card-desc">{item.description}</p>

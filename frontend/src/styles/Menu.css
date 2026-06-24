@@ -2,7 +2,7 @@
 :root { scroll-behavior: smooth; }
 
 .menu-page {
-  max-width: 2500px;/*regular size 1180*/
+  max-width: 1400px;
   margin: 2.5rem auto;
   padding: 0 1.25rem;
   color: #2a0505;
@@ -12,7 +12,7 @@
 }
 
 .menu-anchors-wrap {
-  flex: 0 0 20%;
+  flex: 0 0 180px;
   overflow-x: auto;
   padding-bottom: 0.75rem;
   position: sticky;
@@ -21,12 +21,11 @@
 }
 
 .menu-anchors {
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
   white-space: normal;
-  
 }
 
 .menu-anchor {
@@ -39,12 +38,13 @@
   text-decoration: none;
   font-size: 0.9rem;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+  text-align: center;
 }
 
 .menu-anchor:focus,
 .menu-anchor:hover { transform: translateY(-2px); }
 
-.menu-sections { margin-top: 1rem; flex: 1;}
+.menu-sections { margin-top: 1rem; flex: 1; min-width: 0; }
 
 .menu-section { margin: 2rem 0; }
 
@@ -52,17 +52,18 @@
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin: 0 0 1rem;
-  
   color: #184B5A;
 }
-/*calc(25% - 1rem)   |||| replace with 220px maybe*/
+
+/*  Grid: image cards get a fixed column width, text-only cards are smaller  */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem 1.25rem;
+  align-items: start; /* KEY: stops stretching to fill row height */
 }
 
+/* Cards with images */
 .menu-card {
   background: #fff;
   border-radius: 8px;
@@ -70,25 +71,87 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 6px 18px rgba(6,22,20,0.06);
-  max-width: 400px
 }
 
-.menu-card-media img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.menu-card-media img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
 
-.menu-card-body { padding: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.menu-card-title { margin: 0; font-size: 1rem; color: #0d3d3a; }
-.menu-card-desc { margin: 0; color: #6b8f86; font-size: 0.9rem; }
-.menu-card-price { margin-top: auto; font-weight: 800; color: #e8562e; }
+.menu-card-body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
 
-/* make anchors visually scrollable when overflowing */
+.menu-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0d3d3a;
+}
+
+.menu-card-desc {
+  margin: 0;
+  color: #6b8f86;
+  font-size: 0.82rem;
+}
+
+.menu-card-price {
+  margin-top: 0.4rem;
+  font-weight: 800;
+  color: #e8562e;
+  font-size: 0.95rem;
+}
+
+/* Text-only cards: horizontal pill layout instead of tall empty box */
+.menu-card--text-only {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(6,22,20,0.05);
+}
+
+.menu-card--text-only .menu-card-body {
+  padding: 0;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+
+.menu-card--text-only .menu-card-title {
+  font-size: 0.9rem;
+}
+
+.menu-card--text-only .menu-card-desc {
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.menu-card--text-only .menu-card-price {
+  margin-top: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+/* scrollbar */
 .menu-anchors-wrap::-webkit-scrollbar { height: 8px; }
 .menu-anchors-wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 999px; }
 
 @media (max-width: 768px) {
-  .menu-page { margin: 1.5rem auto; flex-direction: column;}
+  .menu-page { margin: 1.5rem auto; flex-direction: column; }
   .menu-section-title { font-size: 1.25rem; }
   .menu-card-media img { height: 120px; }
   .menu-anchor { font-size: 1.5rem; padding: 0.45rem 0.75rem; }
-  .menu-anchors {flex-direction: row; white-space: noWrap;} 
-  .menu-anchors-wrap {position: sticky; top: 0;}
+  .menu-anchors { flex-direction: row; white-space: nowrap; }
+  .menu-anchors-wrap { position: sticky; top: 0; }
+  .menu-card--text-only { flex-direction: column; align-items: flex-start; }
+  .menu-card--text-only .menu-card-body { flex-direction: column; }
 }

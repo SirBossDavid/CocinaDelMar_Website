@@ -4,13 +4,15 @@ import fishtaco from '../assets/fishtaco.jpg';
 import locationPlaceholder from '../assets/loc.jpg';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 export default function Home() {
   
   const [customs, setCustoms] = useState([])
   useEffect(()=>{
-    axios.get("http://192.168.68.58:5010/api/customs")
+    axios.get("http://192.168.68.60:5010/api/customs")
              .then(res => setCustoms(res.data))
   },[])
+  const navigate = useNavigate();
   return (
     <main className="home-page">
       {/* Hero Section */}
@@ -23,8 +25,9 @@ export default function Home() {
               Experience the bold flavors of Mexico with our fresh seafood dishes made with love and tradition.
             </p>
             <div className="hero-buttons">
-              <button className="btn btn-primary"  href="/menu">VIEW MENU</button>
-              <button className="btn btn-secondary">RESERVE A TABLE</button>
+             
+              <button className="btn btn-primary"  onClick={() => navigate('/menu')}>VIEW MENU</button>
+              <a className="btn btn-secondary" href = 'https://order.spoton.com/so-cocina-del-mar-24164/oceanside-ca/BL-6ED6-1174-4146'>Order Online</a>
             </div>
           </div>
         </div>
@@ -129,7 +132,7 @@ export default function Home() {
               Every plate is scratch-made with love, fresh ingredients, and the authentic flavors of home.
             </p>
           </div>
-          <div >
+          <div className = "Aboutus-img">
             <img src={locationPlaceholder} alt="Cocina Del Mar location placeholder" />
           </div>
         </div>

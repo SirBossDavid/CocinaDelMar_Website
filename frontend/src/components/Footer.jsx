@@ -33,9 +33,9 @@ export default function Footer() {
         <h2>Find Us</h2>
         <iframe
           title="Restaurant location"
-          src="https://maps.google.com/maps?q=cocina%20del%20mar&t=m&z=15&ie=UTF8&iwloc=B&output=embed"
-          width="auto"
-          height="300"
+          src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Cocina%20del%20mar%2C%20650%20douglas%20dr&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+          
+         
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"

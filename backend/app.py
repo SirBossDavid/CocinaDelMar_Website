@@ -23,6 +23,20 @@ try:
 except Exception as e:
     raise Exception("Unable to find the document due to the following error: ", e)
 
+@app.route('/api/gallery', methods=['GET'])
+def get_gallery():
+    try:
+        database = client.get_database("Menu")
+        gallery_collection = database.get_collection("gallery")
+    except Exception as e:
+        raise Exception("Unable to find the document due to the following error: ", e)
+    gallery = list(gallery_collection.find())
+    for item in gallery:
+        item['id'] = str(item['_id'])  # convert ObjectId to string id
+        del item['_id']
+        item['url'] = item.get('img_url', '')  # map img_url to url
+    return jsonify(gallery)
+    
 @app.route('/api/customs', methods=['GET'])
 def get_customs():
     try:

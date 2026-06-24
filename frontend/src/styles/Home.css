@@ -96,6 +96,7 @@
   background-color: transparent;
   color: white;
   border: 2px solid white;
+  text-align: center;
 }
 
 .btn-secondary:hover {
@@ -204,6 +205,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.Aboutus-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+.Aboutus-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
 
 .elfsight-app-a5e8ceb4-e606-44f7-9384-251df4a8bb33{
   display: flex;
