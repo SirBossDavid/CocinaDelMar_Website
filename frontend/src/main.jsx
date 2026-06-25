@@ -26,10 +26,6 @@ const router = createBrowserRouter([
       {
         path:'/gallery',
         element: <Gallery/>
-      },
-      {
-        path:'/order',
-        element: <Order/>
       }
     ],
     errorElement: <div>404 Not Found</div>}
