@@ -1,157 +1,303 @@
-/* Menu page styles */
+/* ── Reset & base ── */
 :root { scroll-behavior: smooth; }
 
+/* ── Page shell ── */
 .menu-page {
-  max-width: 1400px;
-  margin: 2.5rem auto;
-  padding: 0 1.25rem;
-  color: #2a0505;
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  color: #1a1a1a;
+  min-height: 100vh;
 }
 
-.menu-anchors-wrap {
-  flex: 0 0 180px;
-  overflow-x: auto;
-  padding-bottom: 0.75rem;
+/* ── Sidebar ── */
+.menu-sidebar-wrap {
+  width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid #e8e0d8;
   position: sticky;
-  top: 1rem;
-  height: fit-content;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem 0;
 }
 
-.menu-anchors {
+.menu-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-  white-space: normal;
+  gap: 0;
 }
 
-.menu-anchor {
-  display: inline-block;
-  padding: 0.5rem 0.9rem;
-  background: #fff8f4;
-  color: #e85f2f;
-  border-radius: 999px;
+.menu-sidebar-label {
+  font-size: 10px;
   font-weight: 700;
-  text-decoration: none;
-  font-size: 0.9rem;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9e8e80;
+  padding: 0 1.25rem 0.75rem;
 }
 
-.menu-anchor:focus,
-.menu-anchor:hover { transform: translateY(-2px); }
+.menu-sidebar-link {
+  display: block;
+  padding: 0.45rem 1.25rem;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #5a4a3a;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
 
-.menu-sections { margin-top: 1rem; flex: 1; min-width: 0; }
+.menu-sidebar-link:hover {
+  color: #e85f2f;
+  border-left-color: #e85f2f;
+  background: #fff8f4;
+}
 
-.menu-section { margin: 2rem 0; }
+/* ── Content area ── */
+.menu-content {
+  flex: 1;
+  min-width: 0;
+  padding: 2.5rem 2.5rem 4rem;
+}
+
+/* ── Section ── */
+.menu-section {
+  margin-bottom: 3rem;
+}
+
+.menu-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e8e0d8;
+  margin-bottom: 1.25rem;
+}
 
 .menu-section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #184B5A;
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
-/*  Grid: image cards get a fixed column width, text-only cards are smaller  */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem 1.25rem;
-  align-items: start; /* KEY: stops stretching to fill row height */
+.menu-section-count {
+  font-size: 11px;
+  color: #9e8e80;
+  font-weight: 400;
 }
 
-/* Cards with images */
-.menu-card {
-  background: #fff;
+/* ── Section body: featured photo + list side by side ── */
+.menu-section-body {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+/* When no photo: list goes full width in 2 columns */
+.menu-section-body.no-photo .menu-list {
+  columns: 2;
+  column-gap: 2.5rem;
+  width: 100%;
+}
+
+.menu-section-body.no-photo .menu-list-item {
+  break-inside: avoid;
+}
+
+/* ── Featured photo card ── */
+.menu-featured {
+  width: 200px;
+  flex-shrink: 0;
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 6px 18px rgba(6,22,20,0.06);
+  border: 1px solid #e8e0d8;
+  background: #fff;
 }
 
-.menu-card-media img {
+.menu-featured-img {
   width: 100%;
-  height: 150px;
+  height: 145px;
   object-fit: cover;
   display: block;
 }
 
-.menu-card-body {
-  padding: 0.75rem;
+.menu-featured-info {
+  padding: 0.6rem 0.75rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.2rem;
 }
 
-.menu-card-title {
-  margin: 0;
-  font-size: 0.95rem;
+.menu-featured-name {
+  font-size: 13px;
   font-weight: 700;
   color: #0d3d3a;
+  line-height: 1.3;
 }
 
-.menu-card-desc {
-  margin: 0;
-  color: #6b8f86;
-  font-size: 0.82rem;
+.menu-featured-desc {
+  font-size: 11px;
+  color: #9e8e80;
+  line-height: 1.4;
 }
 
-.menu-card-price {
-  margin-top: 0.4rem;
+.menu-featured-price {
+  font-size: 13px;
   font-weight: 800;
   color: #e8562e;
-  font-size: 0.95rem;
+  margin-top: 0.2rem;
 }
 
-/* Text-only cards: horizontal pill layout instead of tall empty box */
-.menu-card--text-only {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.85rem;
-  gap: 0.5rem;
-  box-shadow: 0 2px 8px rgba(6,22,20,0.05);
-}
-
-.menu-card--text-only .menu-card-body {
+/* ── Item list ── */
+.menu-list {
+  flex: 1;
+  list-style: none;
+  margin: 0;
   padding: 0;
-  flex-direction: row;
+}
+
+.menu-list-item {
+  display: flex;
+  justify-content: space-between;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.5rem;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f0e8e0;
 }
 
-.menu-card--text-only .menu-card-title {
-  font-size: 0.9rem;
+.menu-list-item:last-child {
+  border-bottom: none;
 }
 
-.menu-card--text-only .menu-card-desc {
-  font-size: 0.8rem;
-  width: 100%;
+.menu-list-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
-.menu-card--text-only .menu-card-price {
-  margin-top: 0;
+.menu-list-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.menu-list-desc {
+  font-size: 11.5px;
+  color: #9e8e80;
+  line-height: 1.4;
+}
+
+.menu-list-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8562e;
   white-space: nowrap;
   flex-shrink: 0;
-  font-size: 0.9rem;
 }
 
-/* scrollbar */
-.menu-anchors-wrap::-webkit-scrollbar { height: 8px; }
-.menu-anchors-wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 999px; }
-
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .menu-page { margin: 1.5rem auto; flex-direction: column; }
-  .menu-section-title { font-size: 1.25rem; }
-  .menu-card-media img { height: 120px; }
-  .menu-anchor { font-size: 1.5rem; padding: 0.45rem 0.75rem; }
-  .menu-anchors { flex-direction: row; white-space: nowrap; }
-  .menu-anchors-wrap { position: sticky; top: 0; }
-  .menu-card--text-only { flex-direction: column; align-items: flex-start; }
-  .menu-card--text-only .menu-card-body { flex-direction: column; }
+  .menu-page {
+    flex-direction: column;
+  }
+
+  .menu-sidebar-wrap {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid #e8e0d8;
+    padding: 0.5rem 0;
+    background: #fff;
+    z-index: 10;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .menu-sidebar {
+    flex-direction: row;
+    gap: 0;
+    white-space: nowrap;
+    padding: 0 1rem;
+  }
+
+  .menu-sidebar-label {
+    display: none;
+  }
+
+  .menu-sidebar-link {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  .menu-sidebar-link:hover {
+    border-left-color: transparent;
+    border-bottom-color: #e85f2f;
+  }
+
+  .menu-content {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .menu-section-title {
+    font-size: 1.25rem;
+  }
+
+  .menu-section-body {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-featured {
+    width: 100%;
+  }
+
+  .menu-featured-img {
+    height: 180px;
+  }
+
+  .menu-section-body.no-photo .menu-list {
+    columns: 1;
+  }
+}
+
+/* Scrollbar styling for sidebar */
+.menu-sidebar-wrap::-webkit-scrollbar { width: 4px; height: 4px; }
+.menu-sidebar-wrap::-webkit-scrollbar-thumb { background: #e0d8d0; border-radius: 999px; }
+
+/* ── Slideshow dots ── */
+.menu-featured-dots {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 0.5rem 0 0.6rem;
+}
+
+.menu-featured-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  border: none;
+  background: #d0c8c0;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, width 0.2s;
+}
+
+.menu-featured-dot.active {
+  background: #e8562e;
+  width: 16px;
 }

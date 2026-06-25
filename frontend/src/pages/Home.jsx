@@ -9,7 +9,7 @@ export default function Home() {
   
   const [customs, setCustoms] = useState([])
   useEffect(()=>{
-    axios.get("http://192.168.68.60:5010/api/customs")
+    axios.get("http://192.168.68.58:5010/api/customs")
              .then(res => setCustoms(res.data))
   },[])
   const navigate = useNavigate();

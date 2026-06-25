@@ -27,12 +27,12 @@ export default function Header() {
           <li><Link to ="/menu" onClick={() => setMenuOpen(false)}>Menu</Link></li>
           <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li>
           <li className="mobile-order">
-            <Link to="/order" onClick={() => setMenuOpen(false)}>Order Online</Link>
+            <Link to="https://order.spoton.com/so-cocina-del-mar-24164/oceanside-ca/BL-6ED6-1174-4146" onClick={() => setMenuOpen(false)}>Order Online</Link>
           </li>
         </ul>
       </nav>
 
-      <Link to="/order" className="header-order-btn desktop-only" onClick={() => setMenuOpen(false)}>
+      <Link to="https://order.spoton.com/so-cocina-del-mar-24164/oceanside-ca/BL-6ED6-1174-4146" className="header-order-btn desktop-only" onClick={() => setMenuOpen(false)}>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
