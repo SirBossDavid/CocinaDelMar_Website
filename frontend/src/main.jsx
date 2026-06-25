@@ -8,7 +8,7 @@ import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx'
 import Menu from './pages/Menu.jsx'
 import Gallery from './pages/Gallery.jsx'
-import Order from './pages/Order.jsx'
+
 
 import { CartProvider } from './context/CartContext.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
