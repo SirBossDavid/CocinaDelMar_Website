@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+allowed_origins = os.environ.get("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+CORS(app, origins=allowed_origins)
 
 uri = os.getenv("MONGO_URI")
 
@@ -62,4 +63,8 @@ def index():
     return {'message': 'Restaurant API is running!'}
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5010)
+    app.run(
+    debug=os.environ.get("FLASK_DEBUG", "false").lower() == "true",
+    host='0.0.0.0',
+    port=5010
+    )

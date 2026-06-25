@@ -8,7 +8,7 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-     axios.get("http://192.168.68.58:5010/api/gallery")
+     axios.get(`${import.meta.env.VITE_API_URL}/api/gallery`)
         .then(res => {
           setPhotos(res.data);
           setLoading(false);

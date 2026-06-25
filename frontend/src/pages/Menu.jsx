@@ -28,10 +28,7 @@ function FeaturedSlideshow({ imageItems }) {
       />
       <div className="menu-featured-info">
         <span className="menu-featured-name">{active.name}</span>
-        {active.description && (
-          <span className="menu-featured-desc">{active.description}</span>
-        )}
-        <span className="menu-featured-price">${active.price.toFixed(2)}</span>
+       
       </div>
 
       {imageItems.length > 1 && (
@@ -60,7 +57,7 @@ export default function Menu() {
   const [menuItems, setMenuItems] = useState([])
 
   useEffect(() => {
-    axios.get('http://192.168.68.58:5010/api/menu')
+    axios.get(`${import.meta.env.VITE_API_URL}/api/menu`)
       .then(res => setMenuItems(res.data))
       .catch(console.error)
   }, [])
@@ -75,7 +72,7 @@ export default function Menu() {
 
     return Object.entries(grouped).map(([category, items]) => {
       const imageItems = items.filter(i => i.imageUrl)
-      const restItems = items.filter(i => !i.imageUrl)
+      const restItems = items
       return {
         id: category.toLowerCase().replace(/\s+/g, '-'),
         title: category,
