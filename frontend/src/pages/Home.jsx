@@ -42,11 +42,11 @@ export default function Home() {
             <p className="special-subtitle">~ Our Special ~</p>
             <h2 className="special-title">TUESDAY TACOS & CEVICHE</h2>
             <p className="special-description">
-              Join us every Tuesday for our exclusive special featuring authentic tacos and fresh ceviche at unbeatable prices. Enjoy 25% off on selected items and experience the authentic flavors of coastal Mexico.
+              Join us every Tuesday for our exclusive special featuring authentic tacos and fresh ceviche at unbeatable prices. Enjoy discount on the selected items and experience the authentic flavors of coastal Mexico.
             </p>
             <div className="special-highlight">
               <p><strong>Every Tuesday</strong></p>
-              <p>25% Discount on Tacos & Ceviche</p>
+              <p>Baja Style Fish Taco: $2.99 and Fish Ceviche $5.99</p>
             </div>
             <button className="btn btn-primary">LEARN MORE</button>
           </div>
